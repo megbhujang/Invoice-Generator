@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<title>Login-Trainer Form</title>
+<head>
+<style>
+form
+{
+
+background-color: white;
+opacity: 0.9;
+text:black;
+border: 1px solid powderblue;
+margin-top:100px;
+margin-right:440px;
+margin-left:440px;
+}
+body {
+  background-color: coral;
+}
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+</style>
+<script type="text/javascript" language="javascript">
+function checkDate() {
+
+  var startDate = new Date(document.getElementById('fdate').value);
+  var endDate = new Date(document.getElementById('tdate').value);
+  var today = new Date();
+  if (startDate.getTime() < today.getTime()) {
+    alert("Enter valid from date");
+	document.getElementById('fdate').value='';
+	}
+  if (endDate.getTime() < startDate.getTime()) {
+    alert("Enter valid to date");
+	document.getElementById('tdate').value='';
+	}
+  }
+</script>
+</head>
+<center>
+<p>
+<form>
+<h2>FIND TRAINER PAGE</h2>
+<h4><I>Please login for further services</I></h4>
+Name of College:
+<select name="college" required>
+<option value="RNSIT">RNSIT</option>
+<option value="JSS">JSS</option>
+<option value="BMS">BMS</option>
+<option value="SIT">SIT</option>
+<option value="NITK">NITK</option>
+<option value="MIT">MIT</option>
+<option value="RV">RV</option>
+<option value="NIE">NIE</option>
+<option value="Sri Vidya">Sri Vidya</option>
+<option value="SJBIT">SJBIT</option>
+</select><br><br>
+From Date:
+<input type="date" name="fromdate" id="fdate"  required/><br><br>
+To Date:
+<input type="date" name="todate" id="tdate" required/><br><br>
+Timings (Session):
+<select name="session" required>
+<option value="Morning">Morning</option>
+<option value="Afternoon">Afternoon</option>
+<option value="Both">Both</option>
+</select><br><br>
+Mode:
+<select name="mode" required>
+<option>Online</option>
+<option>Offline</option>
+</select><br><br>
+Remuneration:
+<input type="text" name="fees" required/>
+<br>
+<br>
+Trainer Name:
+<select name="trainer" required>
+<option value="Nisha">Nisha</option>
+<option value="Sowmya">Sowmya</option>
+<option value="pushpa">Pushpa</option>
+<option value="nagaraj">Nagaraj</option>
+<option value="divya">Divya</option>
+<option value="shashank">Shashank</option>
+<option value="pallavi">Pallavi</option>
+<option value="monish">Monish</option>
+<option value="priyank">Priyank</option>
+</select><br>
+<br>
+<input type="submit" name="submit" value="Submit" onclick="checkDate()"/>
+<br>
+<br>
+
+</form>
+</p>
+</center>
+</html>
