@@ -1,36 +1,27 @@
+
+
 <!DOCTYPE html>
 <html>
-<title>Login-Trainer Form</title>
 <head>
-<style>
-form
-{
-
-background-color: white;
-opacity: 0.9;
-text:black;
-border: 1px solid powderblue;
-margin-top:100px;
-margin-right:440px;
-margin-left:440px;
+    {% load static %}
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login-Trainer Form</title>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'invoice/css/styles.css' %}" />
+    	<link rel="stylesheet" type="text/css" href="{% static 'invoice/css/bootstrap.css' %}"/>
+	<script type="text/javascript" src="{% static 'invoice/js/bootstrap.min.js' %}"/></script>
+	<script type="text/javascript" src="{% static 'invoice/js/jquery.min.js' %}"/></script>
+	<script type="text/javascript" src="{% static 'invoice/js/popper.min.js' %}"/></script>
+    <style>
+        body {
+  background-image: url("{% static 'invoice/images/bg3.jpg' %}");
+  background-repeat: no-repeat;
+  background-size: 1500px 750px;
 }
-body {
-  background-color: coral;
-}
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-}
-
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
-</style>
+    </style>
 <script type="text/javascript" language="javascript">
 function checkDate() {
-
   var startDate = new Date(document.getElementById('fdate').value);
   var endDate = new Date(document.getElementById('tdate').value);
   var today = new Date();
@@ -45,13 +36,27 @@ function checkDate() {
   }
 </script>
 </head>
+<div class="container">
+<div class="row">
+<div class="col-lg-6">
+<br><br><br>
+<br><br><br>
+    <br><br><br><br><br>
+<h3>WELCOME TO INVOICE GENERATOR!    </h3>
+<br><br>
+<h5>You are one click away from finding a trainer!</h5>
+<h5>We inform the Trainer instantly!</h5>
+</p>
+</div>
+<div class="col-lg-6">
 <center>
-<p>
-<form>
-<h2>FIND TRAINER PAGE</h2>
-<h4><I>Please login for further services</I></h4>
+<form action="store" method="POST">
+    {% csrf_token %}
+<img src="{% static 'invoice/images/logo.png' %}" alt="Invoice.jpg" height="100" width="20%"><h2>INVOICE GENERATOR</h2>
+<br>
 Name of College:
 <select name="college" required>
+    <option value="">--Select College--</option>
 <option value="RNSIT">RNSIT</option>
 <option value="JSS">JSS</option>
 <option value="BMS">BMS</option>
@@ -69,22 +74,24 @@ To Date:
 <input type="date" name="todate" id="tdate" required/><br><br>
 Timings (Session):
 <select name="session" required>
+    <option value="">--Select Session--</option>
 <option value="Morning">Morning</option>
 <option value="Afternoon">Afternoon</option>
-<option value="Both">Both</option>
 </select><br><br>
 Mode:
 <select name="mode" required>
+    <option value="">--Select Mode--</option>
 <option>Online</option>
 <option>Offline</option>
 </select><br><br>
 Remuneration:
-<input type="text" name="fees" required/>
+<input type="number"  name="fees" min="1000"  required/>
 <br>
 <br>
 Trainer Name:
 <select name="trainer" required>
-<option value="Nisha">Nisha</option>
+<option value="">--Select Trainer--</option>
+<option value="Megana">Megana</option>
 <option value="Sowmya">Sowmya</option>
 <option value="pushpa">Pushpa</option>
 <option value="nagaraj">Nagaraj</option>
@@ -93,13 +100,21 @@ Trainer Name:
 <option value="pallavi">Pallavi</option>
 <option value="monish">Monish</option>
 <option value="priyank">Priyank</option>
+<option value="Teeka">Teeka</option>
+<option value="Nisha">Nisha</option>
+<option value="Nikhil">Nikhil</option>
+    <option value="Sahana">Sahana</option>
+    <option value="Tejaswini">Tejaswini</option>
 </select><br>
-<br>
-<input type="submit" name="submit" value="Submit" onclick="checkDate()"/>
-<br>
-<br>
 
+<br>
+<input type="submit" id="ip2"  name="submit" value="Submit" onclick="checkDate()"/>
+<br>
+<br>
+    {{res}}
 </form>
-</p>
 </center>
+</div>
+</div>
+</div>
 </html>

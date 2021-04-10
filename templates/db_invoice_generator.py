@@ -5,7 +5,7 @@ print(mydb)
 if(mydb):
     print("Connection successful")
 else:
-    print("Connection importunsuccessful")
+    print("Connection import unsuccessful")
 
 mycursor = mydb.cursor()
 mycursor.execute("Show tables")
