@@ -1,0 +1,49 @@
+<html>
+<title>Login-Phoenix Air</title>
+<head>
+<head>
+    {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'invoice/css/styles1.css' %}" />
+
+<style>
+body {
+  background-image: url("{% static 'invoice/images/bg1.jpg' %}");
+  background-repeat: no-repeat;
+  background-size: 1500px 655px;
+}
+.red{
+color: red;
+font-weight:bold;
+}
+</style>
+    <script>
+        history.forward(1)
+
+    </script>
+</head>
+<center>
+<p>
+<form action="login" method="POST">
+        {% csrf_token %}
+<h2>HR LOGIN PAGE</h2>
+<h4><I>Please login to generate Invoice</I></h4>
+<div class="imgcontainer">
+    <img src="{% static 'invoice/images/avt.png' %}" alt="Avatar" class="avatar">
+  </div>
+Username:
+<input type="text" id="uname" name="username" placeholder="Enter your username" required/>
+<br>
+<br>
+Password:
+<input type="password" id="pass" name="password" placeholder="Enter your password" required/>
+<br>
+<br>
+<input type="submit" name="submit" value="Login"/></a>
+<br>
+<br>
+
+  <p class="red">  {{res}} </p>
+</form>
+</p>
+</center>
+</html>

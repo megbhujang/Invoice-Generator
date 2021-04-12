@@ -1,3 +1,4 @@
+import time
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -8,20 +9,31 @@ import mysql
 import mysql.connector
 from datetime import date, datetime, timedelta
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from fpdf import FPDF
 from num2words import num2words
-
+from django.contrib.auth import logout as auth_logout
+from django.contrib.auth import login as auth_login
 
 def home(request):
-    return render(request, "trainer.html")
-
-
-def display(request):
-    name = request.GET["name"]
-    domain = request.GET["domain"]
-    results = name + "welcome to training on" + domain
-    return render(request, "home.html", {"res": "result"})
+    return render(request, "login.html")
+def logout(request):
+    auth_logout(request)
+    return redirect(home)
+def login(request):
+    name = request.POST["username"]
+    password = request.POST["password"]
+    mydb = mysql.connector.connect(host="localhost", user="root", password="", database="invoice")
+    mycursor = mydb.cursor()
+    mycursor.execute("select uname from hr_details")
+    uname = mycursor.fetchone()[0]
+    mycursor.execute("select pass from hr_details")
+    dbpass = mycursor.fetchone()[0]
+    if password == dbpass and name==uname:
+            return render(request, "trainer.html")
+    else:
+            result = "Invalid Username or Password"
+            return render(request, "login.html", {"res": result})
 
 
 def store(request):
