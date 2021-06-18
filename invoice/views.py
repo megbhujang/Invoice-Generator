@@ -87,7 +87,7 @@ def email_generator(college, fees, session, n, mode, fromdate, todate, trainer, 
     # set up the SMTP server
     s = SMTP(host='smtp.gmail.com', port=587)
     s.starttls()
-    s.login("megbhujang@gmail.com", "pjlaibnzowhjkxjg")
+    s.login("megbhujang@gmail.com", "xczukyksqydgkaih")
 
     # For each contact, send the email:
     for name, email in [("Infinity",email1)]:

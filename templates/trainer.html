@@ -35,15 +35,15 @@ function checkDate() {
 	document.getElementById('tdate').value='';
 	}
   }
-  document.cookie.split(";").forEach(function(c) {document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
 </script>
 </head>
 <div class="container">
 <div class="row">
-<div class="col-lg-6">
-    <form action="logout" method="get">
+<div class="col-lg-1">
+    <form class="f1" action="logout" method="get">
         <input type="submit" value="Logout"/>
-    </form>
+    </form></div>
+    <div class="col-lg-5">
 <br><br><br>
 <br><br><br>
     <br><br><br><br><br>
