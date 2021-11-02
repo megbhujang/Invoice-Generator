@@ -87,16 +87,11 @@ def email_generator(college, fees, session, n, mode, fromdate, todate, trainer, 
     # set up the SMTP server
     s = SMTP(host='smtp.gmail.com', port=587)
     s.starttls()
-    s.login("megbhujang@gmail.com", "xczukyksqydgkaih")
-
+    s.login("megbhujang@gmail.com", "rxlbgrlspquueril")
     # For each contact, send the email:
     for name, email in [("Infinity",email1)]:
         msg = MIMEMultipart()  # create a message
-
-        # add in the actual person name to the message template
         message = "Dear "+trainer+",\n\nThis is your confirmation mail from Genesis. Following are the details:\n\nName of college: "+college+"\nRemuneration: "+fees+" Rupees per day (without allowances)\nSession: "+session+"\nNumber of days: "+str(n)+"\nMode: "+mode+"\nDates: "+fromdate+" to "+todate
-
-        # setup the parameters of the message
         msg['From'] = "megbhujang@gmail.com"
         msg['To'] = email
         msg['Subject'] = "Genesis - Confirmation Mail!"
